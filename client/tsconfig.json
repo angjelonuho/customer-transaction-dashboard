@@ -30,11 +30,13 @@
     ]
   },
   "include": [
+    "desc.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "cypress.d.ts"
   ],
   "exclude": [
     "node_modules"
