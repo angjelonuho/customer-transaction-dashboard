@@ -1,14 +1,16 @@
 require('dotenv').config();
 const express = require("express");
 const app = express();
+const cors = require('cors');
 
 // Middleware to parse JSON request bodies and  URL-encoded request bodies
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Root route
-app.get("/", (req, res) => {
-  res.json({ message: "Hello" });
+app.get("/v1", (req, res) => {
+  res.json({ data: "success" });
 });
 
 // Routes
