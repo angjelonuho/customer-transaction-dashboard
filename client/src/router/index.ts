@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 import Login from "@/views/Login.vue"
+import Dashboard from "@/views/Dashboard.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "login",
+    name: "Login",
     component: Login
+  },
+  {
+    path: "/Dashboard",
+    name: "Dashboard",
+    component: Dashboard
   }
 ]
 
