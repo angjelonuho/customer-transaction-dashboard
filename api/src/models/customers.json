@@ -1,0 +1,28 @@
+{
+    "customers": [
+        {
+            "id": 1,
+            "name": "Acme Corporation",
+            "email": "acme@example.com",
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "name": "XYZ Corporation",
+            "email": "xyz@example.com",
+            "userId": 2
+        },
+        {
+            "id": 3,
+            "name": "ABC Corporation",
+            "email": "abc@example.com",
+            "userId": 2
+        },
+        {
+            "id": 4,
+            "name": "Example Inc.",
+            "email": "example@example.com",
+            "userId": 3
+        }
+    ]
+}

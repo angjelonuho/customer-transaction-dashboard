@@ -15,7 +15,7 @@ exports.login = (req, res) => {
     const { username, password } = req.body;
     const user = users.find(u => u.username === username && u.password === password);
     
-    console.log(user)
+  
 
     if (!user) {
         return res.status(401).json({ error: 'Invalid credentials' });
@@ -43,6 +43,7 @@ exports.token = (req, res) => {
 
 // Handles user logout and removes the refresh token
 exports.logout = (req, res) => {
+    console.log(user)
     refreshTokens = refreshTokens.filter(token => token !== req.body.token)
     res.sendStatus(204)
 }

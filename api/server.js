@@ -15,9 +15,9 @@ app.get("/v1", (req, res) => {
 
 // Routes
 const authRouter = require('./src/routes/auth')
-const customerRouter = require('./src/routes/customer')
+const customerRouter = require('./src/routes/customers')
 app.use('/v1/auth', authRouter)
-app.use('/v1/customer', customerRouter)
+app.use('/v1/customers', customerRouter)
 
 // Server setup
 const PORT = process.env.PORT || 3000;
