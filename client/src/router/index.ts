@@ -1,17 +1,17 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import LoginComponent from "@/components/auth/LoginComponent.vue";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
+import Login from "@/views/Login.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "login",
-    component: LoginComponent,
-  },
-];
+    component: Login
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
