@@ -21,10 +21,10 @@ exports.login = (req, res) => {
         return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const token = signAccessToken(user)
+    const accessToken = signAccessToken(user)
     const refreshToken = jwt.sign(user, refreshSecretKey)
     refreshTokens.push(refreshToken)
-    res.json({ token, refreshToken });
+    res.json({ accessToken, refreshToken });
 }
 
 // Generates a new access token using a refresh token
