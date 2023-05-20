@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <h2>Login</h2>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="handleLogin">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" id="username" v-model="username" required />
@@ -10,34 +10,53 @@
         <label for="password">Password</label>
         <input type="password" id="password" v-model="password" required />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" @click="handleLogin">Login</button>
+      <h3>username : user1</h3>
+      <h3>password : password1</h3>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+
+import { defineComponent, ref } from "vue"
+import { useRouter } from "vue-router"
+import { useStore } from 'vuex';
+
+
 
 export default defineComponent({
-  name: "LoginComponent",
+  name: "LoginView",
   setup() {
-    const username = ref("");
-    const password = ref("");
+    const router = useRouter()
+    const store = useStore()
+    
+    const username = ref("")
+    const password = ref("")
 
-    const submitForm = () => {
-      // Perform login logic here
-      console.log("Username:", username.value);
-      console.log("Password:", password.value);
-      // You can make API requests or perform authentication logic here
-    };
+
+
+    const handleLogin = () => {
+      store.dispatch("auth/login", {
+        username: username.value,
+        password: password.value
+      }).then(
+        () => {
+          router.push("/")
+        },
+        (error: any) => {
+          console.log(error)
+        }
+      )
+    }
 
     return {
       username,
       password,
-      submitForm,
-    };
-  },
-});
+      handleLogin
+    }
+  }
+})
 </script>
 
 <style scoped>
