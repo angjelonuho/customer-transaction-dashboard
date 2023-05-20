@@ -19,7 +19,7 @@ class TokenService {
     }
 
     getUser() {
-        return this.getUserFromLocalStorage() || {};
+        return this.getUserFromLocalStorage() || null;
     }
 
     setUser(user: any) {
@@ -47,6 +47,7 @@ class TokenService {
             console.log("Error setting user to localStorage:", error);
         }
     }
+    
 }
 
 export default new TokenService();

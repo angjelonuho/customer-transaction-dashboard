@@ -3,7 +3,8 @@ export enum ApiError {
   INVALID_CREDENTIALS = "invalid_credentials",
   UNAUTHORIZED = "unauthorized",
   VALIDATION = "validation",
-  NOT_FOUND = "not_found"
+  NOT_FOUND = "not_found",
+  INVALID_ACCESS_TOKEN="invalid_token",
 }
 
 export type ApiResponce<DataType> = {

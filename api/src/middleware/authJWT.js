@@ -9,12 +9,12 @@ const verifyToken = (req, res, next) => {
     const token = authHeader && authHeader.split(' ')[1]
 
     if (!token) {
-        return res.status(401).json({ error: 'No token provided' });
+        return res.status(401).json({ error: 'unauthorized' });
     }
 
     jwt.verify(token, secretKey, (err, decoded) => {
         if (err) {
-            return res.status(401).json({ error: 'Invalid token' });
+            return res.status(498).json({ error: 'invalid_token' });
         }
 
         req.userId = decoded.id;

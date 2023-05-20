@@ -14,9 +14,6 @@ let refreshTokens = []
 exports.login = (req, res) => {
     const { username, password } = req.body;
     const user = users.find(u => u.username === username && u.password === password);
-    
-  
-
     if (!user) {
         return res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -31,13 +28,13 @@ exports.login = (req, res) => {
 exports.token = (req, res) => {
     const refreshToken = req.body.token
 
-    if (refreshToken == null) return res.sendStatus(401);
+    if (refreshToken == null) return res.status(401);
     if (!refreshTokens.includes(refreshToken)) return res.sendStatus(403);
 
     jwt.verify(refreshToken, refreshSecretKey, (err, user) => {
         if (err) return res.sendStatus(403)
-        const accessToken = signAccessToken({ name: user.name })
-        res.json({ accessToken })
+        const accessToken = signAccessToken({ id: user.id })
+        res.json({ accessToken: accessToken })
     })
 }
 
@@ -50,5 +47,5 @@ exports.logout = (req, res) => {
 
 // Signs an access token for a given user
 const signAccessToken = (user) => {
-    return jwt.sign(user, secretKey, { expiresIn: '1h' })
+    return jwt.sign(user, secretKey, { expiresIn: '10s' })
 }

@@ -1,9 +1,16 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
+import { useStore } from 'vuex';
 import Login from "@/views/Login.vue"
 import Dashboard from "@/views/Dashboard.vue"
-import { useStore } from 'vuex';
+import Customer from "@/views/Customer.vue"
+
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/",
+    name: "login",
+    component: Login
+  },
   {
     path: "/",
     name: "login",
@@ -13,6 +20,12 @@ const routes: Array<RouteRecordRaw> = [
     path: "/dashboard",
     name: "dashboard",
     component: Dashboard,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/dashboard/customer",
+    name: "customer",
+    component: Customer,
     meta: { requiresAuth: true }
   }
 ]

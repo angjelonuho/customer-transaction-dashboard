@@ -5,17 +5,19 @@
                 <div class="flex space-x-4">
                     <!-- logo -->
                     <div>
-                        <a href="#" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+                        <router-link to="/dashboard" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
                             <img src="https://companieslogo.com/img/orig/ABN.AS-b4e2e1d3.png?t=1597963953"
                                 class="h-6 mr-2" />
                             <span class="font-bold">Dashboard</span>
-                        </a>
+                        </router-link>
                     </div>
 
                     <!-- primary nav -->
                     <div class="hidden md:flex items-center space-x-1">
-                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Customers</a>
-                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Transactions</a>
+                        <router-link to="/dashboard/customer"
+                            class="py-5 px-3 text-gray-700 hover:text-gray-900">Customers</router-link>
+                        <router-link to="/dashboard/transactions"
+                            class="py-5 px-3 text-gray-700 hover:text-gray-900">Transactions</router-link>
                     </div>
                 </div>
 
@@ -42,32 +44,33 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu" :class="{ 'hidden': !showMobileMenu }">
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Customers</a>
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Transactions</a>
+            <router-link to="/dashboard/customer" class="block py-2 px-4 text-sm hover:bg-gray-200">Customers</router-link>
+            <router-link to="/dashboard/transactions"
+                class="block py-2 px-4 text-sm hover:bg-gray-200">Transactions</router-link>
+            <button @click="logout"
+                class="py-2 my-2 px-4 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
+                Logout
+            </button>
         </div>
     </nav>
-
-    <!-- content space -->
-    <div class="py-10"></div>
 </template>
   
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { useStore } from 'vuex';
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
-    name: "NavBar",
+    name: 'NavBar',
     setup() {
         const showMobileMenu = ref(false);
-        const store = useStore()
-        const router = useRouter()
+        const store = useStore();
+        const router = useRouter();
 
         const logout = () => {
-            store.dispatch('auth/logout')
-            router.push('/')
-        }
-
+            store.dispatch('auth/logout');
+            router.push('/');
+        };
 
         return {
             showMobileMenu,

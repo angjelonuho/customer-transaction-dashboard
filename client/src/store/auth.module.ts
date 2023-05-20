@@ -1,7 +1,8 @@
 import { LoginTypes } from "@/interface/auth/auth";
-import AuthService from "@/services/auth/auth.service";
+import AuthService from "@/services/api/auth/auth.service";
+import TokenService from "@/services/api/auth/token.service"
 
-const user = localStorage.getItem('user')
+const user = TokenService.getUser()
 
 const initialState = user
     ? { status: { loggedIn: true }, user }
