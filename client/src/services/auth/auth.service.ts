@@ -1,23 +1,30 @@
 import axiosInstance from "@/helpers/axiosInstance";
 import { LoginTypes } from "@/interface/auth/auth";
+import TokenService from "@/services/auth/token.service";
 
 class AuthService {
     async login({ username, password }: LoginTypes) {
-        const response = await axiosInstance
-            .post("/auth/login", {
+        try {
+            const response = await axiosInstance.post("/auth/login", {
                 username,
-                password
+                password,
             });
-            
-        if (response.data.accessToken) {
-            //TokenService.setUser(response.data);
-        }
 
-        return response.data;
+            const { accessToken } = response.data;
+            if (accessToken) {
+                TokenService.setUser(response.data);
+            }
+
+            return response.data;
+        } catch (error) {
+
+            console.log("Login failed:", error);
+            throw error;
+        }
     }
 
     logout() {
-        //TokenService.removeUser();
+        TokenService.removeUser();
     }
 }
 

@@ -5,12 +5,12 @@ import Dashboard from "@/views/Dashboard.vue"
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Login",
+    name: "login",
     component: Login
   },
   {
     path: "/Dashboard",
-    name: "Dashboard",
+    name: "dashboard",
     component: Dashboard
   }
 ]

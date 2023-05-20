@@ -19,7 +19,7 @@
 
 <script lang="ts">
 
-import { defineComponent, ref } from "vue"
+import { computed, defineComponent, onMounted, ref, watch } from "vue"
 import { useRouter } from "vue-router"
 import { useStore } from 'vuex';
 
@@ -30,10 +30,10 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const store = useStore()
-    
+    const loggedIn = computed(() => store.state.auth.status.loggedIn);
+
     const username = ref("")
     const password = ref("")
-
 
 
     const handleLogin = () => {
@@ -49,6 +49,12 @@ export default defineComponent({
         }
       )
     }
+
+    onMounted(() => {
+      if (loggedIn.value) {
+        router.push("/Dashboard")
+      }
+    });
 
     return {
       username,
