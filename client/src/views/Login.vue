@@ -42,7 +42,7 @@ export default defineComponent({
         password: password.value
       }).then(
         () => {
-          router.push("/")
+          router.push("/Dashboard")
         },
         (error: any) => {
           console.log(error)
