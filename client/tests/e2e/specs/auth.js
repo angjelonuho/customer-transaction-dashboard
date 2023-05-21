@@ -4,9 +4,7 @@ describe('Login', () => {
   });
 
   it('should display an error message for invalid credentials', () => {
-    cy.get('input#username').type('invaliduser');
-    cy.get('input#password').type('invalidpassword');
-    cy.contains('button', 'Login').click();
+    cy.login('invaliduser', 'invalidpassword');
     cy.get('#errorMesage').should(
       'contain.text',
       'username or password is incorrect'
@@ -14,9 +12,14 @@ describe('Login', () => {
   });
 
   it('should navigate to the dashboard page after successful login', () => {
-    cy.get('input#username').type('user1');
-    cy.get('input#password').type('password1');
-    cy.contains('button', 'Login').click();
+    cy.login('user1', 'password1');
     cy.location('pathname').should('eq', '/dashboard');
+  });
+
+  it('should log out the user when the logout button is clicked', () => {
+    cy.login('user1', 'password1');
+    cy.location('pathname').should('eq', '/dashboard');
+    cy.get('#logoutButton').should('exist').click();
+    cy.location('pathname').should('eq', '/');
   });
 });

@@ -1,5 +1,5 @@
 <template>
-    <TableComponent :columns="columns" :data="customers" />
+    <TableComponent :columns="columns" :data="customers" :sortableColumns="sortableColumns" />
     <div v-if="loading">Loading...</div>
 </template>
 
@@ -23,6 +23,8 @@ export default defineComponent({
             { key: "email", label: "Email" },
         ]
 
+        const sortableColumns = ['name', 'email'];
+
         onMounted(async () => {
             await fetchCustomerData()
         });
@@ -38,7 +40,8 @@ export default defineComponent({
         return {
             columns,
             customers,
-            loading
+            loading,
+            sortableColumns
         }
     },
 })
