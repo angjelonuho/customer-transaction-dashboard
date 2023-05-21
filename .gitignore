@@ -5,7 +5,7 @@ client/dist
 
 client/tests/e2e/videos/
 client/tests/e2e/screenshots/
-
+client/coverage
 
 # local env files
 client/.env.local
