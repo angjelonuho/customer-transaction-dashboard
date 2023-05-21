@@ -4,34 +4,34 @@
       <!-- Username field -->
       <div class="md:flex md:items-center mb-6">
         <div class="md:w-1/3">
-          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
             Username
           </label>
         </div>
         <div class="md:w-2/3">
           <input v-model="username"
             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            id="inline-full-name" type="text">
+            id="username" type="text">
         </div>
       </div>
 
       <!-- Password field -->
       <div class="md:flex md:items-center mb-6">
         <div class="md:w-1/3">
-          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
             Password
           </label>
         </div>
         <div class="md:w-2/3">
           <input v-model="password"
             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            id="inline-password" type="password" placeholder="**************">
+            id="password" type="password" placeholder="**************">
         </div>
       </div>
       <!-- Error message -->
-      <div class="md:flex md:items-center mt-2 mb-4"> <!-- Added CSS class -->
+      <div class="md:flex md:items-center mt-2 mb-4"> 
         <div class="md:w-1/3"></div>
-        <div class="md:w-2/3 text-red-500"> <!-- Added CSS class for text color -->
+        <div class="md:w-2/3 text-red-500" id="errorMesage">
           {{ loginError }}
         </div>
       </div>
@@ -60,7 +60,6 @@
 </template>
 
 <script lang="ts">
-import { AxiosError } from "axios";
 import { computed, defineComponent, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from 'vuex';
