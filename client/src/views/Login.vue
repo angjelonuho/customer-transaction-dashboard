@@ -71,7 +71,7 @@ export default defineComponent({
     const router = useRouter();
     const store = useStore();
     const loggedIn = computed(() => store.state.auth.status.loggedIn);
-    const loginError = ref(""); // Add a reactive variable to hold the login error message
+    const loginError = ref(""); 
 
     const username = ref("");
     const password = ref("");
@@ -107,7 +107,7 @@ export default defineComponent({
       username,
       password,
       handleLogin,
-      loginError // Add loginError to the returned object
+      loginError 
     };
   }
 });
