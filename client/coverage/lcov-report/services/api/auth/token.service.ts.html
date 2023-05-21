@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.94% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/17</span>
+                <span class='fraction'>14/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.94% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/17</span>
+                <span class='fraction'>14/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -119,29 +119,26 @@
 <a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,9 +146,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -167,58 +168,57 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">class TokenService {
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { LocalStorageUserTypes } from "@/interface/auth/auth";
 &nbsp;
-<span class="fstat-no" title="function not covered" >    getLocalRefreshToken(</span>) {
-        const user = <span class="cstat-no" title="statement not covered" >this.getUserFromLocalStorage();</span>
-<span class="cstat-no" title="statement not covered" >        return user?.refreshToken;</span>
+class TokenService {
+    getLocalRefreshToken(): string | null {
+        const user: LocalStorageUserTypes = this.getUserFromLocalStorage();
+        return user ? user.refreshToken : null;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    getLocalAccessToken(</span>) {
-        const user = <span class="cstat-no" title="statement not covered" >this.getUserFromLocalStorage();</span>
-<span class="cstat-no" title="statement not covered" >        return user?.accessToken;</span>
+    getLocalAccessToken(): string | null {
+        const user: LocalStorageUserTypes = this.getUserFromLocalStorage();
+        return user ? user.accessToken : null;
     }
 &nbsp;
-    updateLocalAccessToken(token: string) {
-        const user = this.getUserFromLocalStorage();
+    updateLocalAccessToken(token: string): void {
+        const user: LocalStorageUserTypes = this.getUserFromLocalStorage();
         if (user) {
             user.accessToken = token;
             this.setUserToLocalStorage(user);
         }
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    getUser(</span>) {
-<span class="cstat-no" title="statement not covered" >        return this.getUserFromLocalStorage() || null;</span>
+    getUser(): LocalStorageUserTypes {
+        return this.getUserFromLocalStorage() || null;
     }
 &nbsp;
-    setUser(user: any) {
+    setUser(user: LocalStorageUserTypes): void {
         this.setUserToLocalStorage(user);
     }
 &nbsp;
-    removeUser() {
+    removeUser(): void {
         localStorage.removeItem("user");
     }
 &nbsp;
-    getUserFromLocalStorage() {
+    getUserFromLocalStorage(): LocalStorageUserTypes {
         try {
-            const userString = localStorage.getItem("user");
-            return userString ? JSON.parse(userString) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+            const userString: string | null = localStorage.getItem("user");
+            return userString ? JSON.parse(userString) : null;
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            console.log("Error retrieving user from localStorage:", error);</span>
 <span class="cstat-no" title="statement not covered" >            return null;</span>
         }
     }
 &nbsp;
-    setUserToLocalStorage(user: any) {
+    setUserToLocalStorage(user: LocalStorageUserTypes): void {
         try {
             localStorage.setItem("user", JSON.stringify(user));
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            console.log("Error setting user to localStorage:", error);</span>
         }
     }
-    
 }
 &nbsp;
 export default new TokenService();
@@ -229,7 +229,7 @@ export default new TokenService();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-21T11:37:29.920Z
+                at 2023-05-21T18:44:11.427Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

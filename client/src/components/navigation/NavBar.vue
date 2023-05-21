@@ -14,7 +14,7 @@
 
                     <!-- primary nav -->
                     <div class="hidden md:flex items-center space-x-1">
-                        <router-link to="/dashboard/customer"
+                        <router-link to="/dashboard/customers"
                             class="py-5 px-3 text-gray-700 hover:text-gray-900">Customers</router-link>
                         <router-link to="/dashboard/transactions"
                             class="py-5 px-3 text-gray-700 hover:text-gray-900">Transactions</router-link>

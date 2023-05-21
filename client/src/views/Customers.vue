@@ -1,6 +1,6 @@
 <template>
     <TableComponent :columns="columns" :data="customers" :sortableColumns="sortableColumns" />
-    <div v-if="loading">Loading...</div>
+    <div v-if="loading" id="loading-indicator">Loading...</div>
 </template>
 
 <script lang="ts">

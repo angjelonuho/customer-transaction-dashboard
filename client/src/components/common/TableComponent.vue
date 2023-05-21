@@ -34,6 +34,7 @@
               :key="column.key"
               class="px-6 py-3 cursor-pointer"
               @click="sortData(column.key)"
+              :data-column-key="column.key"
             >
               {{ column.label }}
               <span v-if="isSortable(column.key)">
@@ -54,6 +55,7 @@
     </div>
   </div>
 </template>
+
 
 <script lang="ts">
 import { defineComponent, PropType, computed, ref } from "vue"
