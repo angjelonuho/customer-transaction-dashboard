@@ -36,3 +36,16 @@ npm run serve
 ```
 
 The dashboard will be accessible at http://localhost:8080.
+
+## Tesing
+
+To run unit tests, use the following command:
+
+```bash
+npm run test:unit
+```
+To run e2e tests, use the following command:
+
+```bash
+npm run test:e2e
+```
