@@ -1,5 +1,5 @@
 import { AxiosResponse, AxiosError } from "axios";
-import { ApiError } from "@/interface/api/ApiError";
+import { ApiErrors } from "@/interface/api/apiErrors";
 import axiosInstance from "./axiosInstance";
 import TokenService from "@/services/api/auth/token.service";
 import AuthService from "@/services/api/auth/auth.service";
@@ -37,17 +37,17 @@ const setupAxios = (store: any) => {
         return Promise.reject(error);
       }
 
-      if (errorCode === ApiError.INVALID_CREDENTIALS) {
+      if (errorCode === ApiErrors.INVALID_CREDENTIALS) {
         return Promise.reject(errorCode);
       }
 
-      if (errorCode === ApiError.UNAUTHORIZED) {
+      if (errorCode === ApiErrors.UNAUTHORIZED) {
   
         AuthService.logout()
         return Promise.reject(errorCode);
       }
 
-      if (errorCode === ApiError.INVALID_ACCESS_TOKEN) {
+      if (errorCode === ApiErrors.INVALID_ACCESS_TOKEN) {
         if (retryCount < maxRetries) {
           // Retry logic
           retryCount++;

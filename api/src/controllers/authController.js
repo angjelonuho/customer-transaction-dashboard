@@ -47,5 +47,5 @@ exports.logout = (req, res) => {
 
 // Signs an access token for a given user
 const signAccessToken = (user) => {
-    return jwt.sign(user, secretKey, { expiresIn: '10s' })
+    return jwt.sign(user, secretKey, { expiresIn: '1h' })
 }

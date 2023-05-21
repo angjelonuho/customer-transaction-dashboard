@@ -1,5 +1,5 @@
 <template>
-    <TableComponent :columns="columns" :data="tableData" />
+    <TableComponent :columns="columns" :data="customers" />
     <div v-if="loading">Loading...</div>
 </template>
 
@@ -7,6 +7,7 @@
 import { defineComponent, ref, onMounted, computed, reactive } from "vue"
 import TableComponent from "@/components/common/TableComponent.vue";
 import axiosInstance from "@/helpers/axiosInstance";
+import { CustomersTypes } from "@/interface/api/customers";
 
 export default defineComponent({
     name: "CustomerView",
@@ -14,35 +15,30 @@ export default defineComponent({
         TableComponent,
     },
     setup() {
-        let customers = reactive([]);
+        const customers = reactive<CustomersTypes[]>([]);
         const loading = ref(false);
+        const columns = [
+            { key: "id", label: "Customer ID" },
+            { key: "name", label: "Name" },
+            { key: "email", label: "Email" },
+        ]
 
         onMounted(async () => {
             await fetchCustomerData()
         });
 
         const fetchCustomerData = async () => {
-
             loading.value = true;
             await axiosInstance.get("/customers")
-                .then((res) => customers = res.data)
+                .then((res) => customers.splice(0, customers.length, ...res.data))
                 .catch(err => console.log(err))
                 .finally(() => loading.value = false)
-
-            console.log('___________' + JSON.stringify(customers[0].id))
         }
 
-
         return {
-            columns: [
-                { key: "customerId", label: "Customer ID" },
-                { key: "name", label: "Name" },
-                { key: "email", label: "Email" },
-            ],
-            tableData: [
-                { id: 1, customerId: 123, name: "John Doe", email: "john@example.com" },
-                { id: 2, customerId: 456, name: "Jane Smith", email: "jane@example.com" },
-            ],
+            columns,
+            customers,
+            loading
         }
     },
 })

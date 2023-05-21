@@ -2,26 +2,110 @@
     "customers": [
         {
             "id": 1,
-            "name": "Acme Corporation",
-            "email": "acme@example.com",
+            "name": "John Smith",
+            "email": "johnsmith@example.com",
             "userId": 1
         },
         {
             "id": 2,
-            "name": "XYZ Corporation",
-            "email": "xyz@example.com",
+            "name": "Emma Johnson",
+            "email": "emmajohnson@example.com",
             "userId": 2
         },
         {
             "id": 3,
-            "name": "ABC Corporation",
-            "email": "abc@example.com",
+            "name": "Michael Williams",
+            "email": "michaelwilliams@example.com",
             "userId": 2
         },
         {
             "id": 4,
-            "name": "Example Inc.",
-            "email": "example@example.com",
+            "name": "Olivia Brown",
+            "email": "oliviabrown@example.com",
+            "userId": 3
+        },
+        {
+            "id": 5,
+            "name": "William Jones",
+            "email": "williamjones@example.com",
+            "userId": 1
+        },
+        {
+            "id": 6,
+            "name": "Ava Taylor",
+            "email": "avataylor@example.com",
+            "userId": 1
+        },
+        {
+            "id": 7,
+            "name": "Sophia Davis",
+            "email": "sophiadavis@example.com",
+            "userId": 1
+        },
+        {
+            "id": 8,
+            "name": "James Miller",
+            "email": "jamesmiller@example.com",
+            "userId": 1
+        },
+        {
+            "id": 9,
+            "name": "Isabella Wilson",
+            "email": "isabellawilson@example.com",
+            "userId": 1
+        },
+        {
+            "id": 10,
+            "name": "Henry Anderson",
+            "email": "henryanderson@example.com",
+            "userId": 1
+        },
+        {
+            "id": 11,
+            "name": "Mia Martinez",
+            "email": "miamartinez@example.com",
+            "userId": 1
+        },
+        {
+            "id": 12,
+            "name": "Alexander Thompson",
+            "email": "alexanderthompson@example.com",
+            "userId": 1
+        },
+        {
+            "id": 13,
+            "name": "Charlotte Thomas",
+            "email": "charlottethomas@example.com",
+            "userId": 1
+        },
+        {
+            "id": 14,
+            "name": "Daniel Hernandez",
+            "email": "danielhernandez@example.com",
+            "userId": 1
+        },
+        {
+            "id": 15,
+            "name": "Sophia Lewis",
+            "email": "sophialewis@example.com",
+            "userId": 2
+        },
+        {
+            "id": 16,
+            "name": "Emily Young",
+            "email": "emilyyoung@example.com",
+            "userId": 2
+        },
+        {
+            "id": 17,
+            "name": "Benjamin Lee",
+            "email": "benjaminlee@example.com",
+            "userId": 2
+        },
+        {
+            "id": 18,
+            "name": "Abigail Turner",
+            "email": "abigailturner@example.com",
             "userId": 3
         }
     ]

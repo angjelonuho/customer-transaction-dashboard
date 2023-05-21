@@ -1,4 +1,4 @@
-export enum ApiError {
+export enum ApiErrors {
   GENERIC = "generic",
   INVALID_CREDENTIALS = "invalid_credentials",
   UNAUTHORIZED = "unauthorized",
