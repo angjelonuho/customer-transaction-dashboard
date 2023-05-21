@@ -3,6 +3,7 @@ import { useStore } from 'vuex';
 import Login from "@/views/Login.vue"
 import Dashboard from "@/views/Dashboard.vue"
 import Customer from "@/views/Customer.vue"
+import Transactions from "@/views/Transactions.vue"
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -22,7 +23,14 @@ const routes: Array<RouteRecordRaw> = [
     name: "customer",
     component: Customer,
     meta: { requiresAuth: true }
+  },
+  {
+    path: "/dashboard/transactions",
+    name: "transactions",
+    component: Transactions,
+    meta: { requiresAuth: true }
   }
+
 ]
 
 const router = createRouter({
