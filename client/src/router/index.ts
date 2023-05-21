@@ -23,7 +23,14 @@ const routes: Array<RouteRecordRaw> = [
     name: "customers",
     component: Customers,
     meta: { requiresAuth: true }
+  },
+  {
+    path: "/dashboard/transactions",
+    name: "transactions",
+    component: Transactions,
+    meta: { requiresAuth: true }
   }
+
 ]
 
 const router = createRouter({
