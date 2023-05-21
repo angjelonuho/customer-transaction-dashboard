@@ -17,25 +17,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
+import { defineComponent, ref } from "vue"
 
 export default defineComponent({
     name: "DateRangeFilter",
-    data() {
-        return {
-            startDate: "",
-            endDate: "",
+    setup(_, { emit }) {
+        const startDate = ref("");
+        const endDate = ref("");
+
+        const applyFilters = () => {
+            const filters = {
+                startDate: startDate.value,
+                endDate: endDate.value,
+            };
+            emit("filters-applied", filters);
         };
-    },
-    methods: {
-        applyFilters() {
-            this.$emit("filters-applied", {
-                startDate: this.startDate,
-                endDate: this.endDate,
-            });
-        },
+
+        return {
+            startDate,
+            endDate,
+            applyFilters,
+        };
     },
 })
 </script>
 <style scoped></style>
-  
