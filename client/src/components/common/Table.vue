@@ -1,16 +1,11 @@
 <template>
-  <div class="max-w-2xl mx-auto my-2">
+  <div class="max-w-2xl mx-auto my-5">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
       <table class="w-full text-sm text-left">
         <thead class="text-xs uppercase bg-gray-100">
           <tr>
-            <th
-              v-for="column in columns"
-              :key="column.key"
-              class="px-6 py-3 cursor-pointer"
-              @click="sortData(column.key)"
-              :data-column-key="column.key"
-            >
+            <th v-for="column in columns" :key="column.key" class="px-6 py-3 cursor-pointer" @click="sortData(column.key)"
+              :data-column-key="column.key">
               {{ column.label }}
               <span v-if="isSortable(column.key)">
                 <span v-if="sortColumn === column.key || !sortColumn">
@@ -34,26 +29,17 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed, ref } from "vue"
-
-interface TableColumn {
-  key: string
-  label: string
-  sortable?: boolean
-}
-
-interface TableData {
-  [key: string]: any
-}
+import { TableColumnTypes, TableDataTypes } from "@/types/components/table"
 
 export default defineComponent({
   name: "TableComponent",
   props: {
     columns: {
-      type: Array as PropType<TableColumn[]>,
+      type: Array as PropType<TableColumnTypes[]>,
       required: true,
     },
     data: {
-      type: Array as PropType<TableData[]>,
+      type: Array as PropType<TableDataTypes[]>,
       required: true,
     },
     sortableColumns: {

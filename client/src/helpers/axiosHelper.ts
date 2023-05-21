@@ -1,5 +1,5 @@
 import { AxiosResponse, AxiosError } from "axios";
-import { ApiErrors } from "@/interface/api/apiErrors";
+import { ApiErrors } from "@/types/api/apiErrors";
 import axiosInstance from "./axiosInstance";
 import TokenService from "@/services/api/auth/token.service";
 import AuthService from "@/services/api/auth/auth.service";

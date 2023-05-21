@@ -1,4 +1,4 @@
-import { LocalStorageUserTypes } from "@/interface/auth/auth";
+import { LocalStorageUserTypes } from "@/types/auth/auth";
 
 class TokenService {
     getLocalRefreshToken(): string | null {

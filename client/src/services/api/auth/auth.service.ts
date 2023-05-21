@@ -1,5 +1,5 @@
 import axiosInstance from "@/helpers/axiosInstance";
-import { LoginTypes } from "@/interface/auth/auth";
+import { LoginTypes } from "@/types/auth/auth";
 import TokenService from "@/services/api/auth/token.service";
 
 class AuthService {
