@@ -17,7 +17,7 @@ Make sure you have the following software installed on your machine:
 2. Navigate to the project directory.
 
 ```bash
-cd customer-transaction-dashboard
+cd customer-transaction-dashboard/client
 ```
 3. Install the project dependencies using NPM.
 

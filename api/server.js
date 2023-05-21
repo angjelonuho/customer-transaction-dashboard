@@ -2,6 +2,11 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const specs = require('./src/utils/swaggerDef.js');
+
+// Serve Swagger UI at /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Middleware to parse JSON request bodies and  URL-encoded request bodies
 app.use(cors());
