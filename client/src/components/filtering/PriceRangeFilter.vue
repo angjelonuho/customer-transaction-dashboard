@@ -8,7 +8,7 @@
             <span class="pr-2 hidden sm:inline">-</span>
             <input type="number" v-model="maxAmount"
                 class="w-full sm:w-20 px-2 py-1 text-sm border rounded mb-1 sm:mb-0 sm:mr-2" />
-            <button @click="applyFilters"
+            <button @click="applyFilters" id="priceRangeFilterButton"
                 class="w-full sm:w-auto mt-2 sm:mt-0 px-3 py-1 bg-blue-500 text-white rounded text-sm">Filter</button>
         </div>
     </div>

@@ -46,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in sortedData" :key="item.id" class="bg-white hover:bg-gray-50">
+          <tr v-for="item in sortedData" :key="item.id" class="bg-white hover:bg-gray-50" id="transaction-table-row">
             <td v-for="column in columns" :key="column.key" class="px-6 py-4">{{ item[column.key] }}</td>
           </tr>
         </tbody>
