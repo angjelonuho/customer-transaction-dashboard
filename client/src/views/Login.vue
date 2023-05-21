@@ -1,39 +1,81 @@
 <template>
-  <div class="login-container">
-    <h2>Login</h2>
-    <form @submit.prevent="handleLogin">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="username" required />
+  <div class="flex flex-col items-center">
+    <form class="w-full max-w-sm mt-10" @submit.prevent="handleLogin">
+      <!-- Username field -->
+      <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            Username
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input v-model="username"
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            id="inline-full-name" type="text">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="password" required />
+
+      <!-- Password field -->
+      <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+            Password
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input v-model="password"
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            id="inline-password" type="password" placeholder="**************">
+        </div>
       </div>
-      <button type="submit" @click="handleLogin">Login</button>
-      <h3>username : user1</h3>
-      <h3>password : password1</h3>
+      <!-- Error message -->
+      <div class="md:flex md:items-center mt-2 mb-4"> <!-- Added CSS class -->
+        <div class="md:w-1/3"></div>
+        <div class="md:w-2/3 text-red-500"> <!-- Added CSS class for text color -->
+          {{ loginError }}
+        </div>
+      </div>
+
+      <!-- Login button -->
+      <div class="md:flex md:items-center">
+        <div class="md:w-1/3"></div>
+        <div class="md:w-2/3 flex justify-center">
+          <button @click="handleLogin"
+            class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            type="button">
+            Login
+          </button>
+        </div>
+      </div>
+
+
     </form>
+  </div>
+
+  <!-- Left-aligned last <div> -->
+  <div class="mt-10 content-start">
+    <p class="text-base font-mono mb-2">username : user1</p>
+    <p class="text-base font-mono">password : password1</p>
   </div>
 </template>
 
 <script lang="ts">
-
-import { computed, defineComponent, onMounted, ref } from "vue"
-import { useRouter } from "vue-router"
+import { AxiosError } from "axios";
+import { computed, defineComponent, onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import { useStore } from 'vuex';
-
-
+import { ApiErrors } from "@/interface/api/apiErrors";
 
 export default defineComponent({
   name: "LoginView",
   setup() {
-    const router = useRouter()
-    const store = useStore()
+    const router = useRouter();
+    const store = useStore();
     const loggedIn = computed(() => store.state.auth.status.loggedIn);
+    const loginError = ref(""); // Add a reactive variable to hold the login error message
 
-    const username = ref("")
-    const password = ref("")
+    const username = ref("");
+    const password = ref("");
 
     const handleLogin = () => {
       store.dispatch("auth/login", {
@@ -41,56 +83,35 @@ export default defineComponent({
         password: password.value
       }).then(
         () => {
-          router.push("/dashboard")
+          router.push("/dashboard");
         },
         (error: any) => {
           console.log(error)
+          if (error.code === "ERR_NETWORK") {
+            loginError.value = "server is offline";
+          }
+          if (error === ApiErrors.INVALID_CREDENTIALS) {
+            loginError.value = "username or password is incorrect";
+          }
+
         }
-      )
-    }
+      );
+    };
 
     onMounted(() => {
       if (loggedIn.value) {
-        router.push("/dashboard")
+        router.push("/dashboard");
       }
     });
 
     return {
       username,
       password,
-      handleLogin
-    }
+      handleLogin,
+      loginError // Add loginError to the returned object
+    };
   }
-})
+});
 </script>
 
-<style scoped>
-.login-container {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-input {
-  width: 100%;
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-</style>
+<style scoped></style>
