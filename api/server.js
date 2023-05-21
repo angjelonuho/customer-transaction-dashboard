@@ -16,8 +16,10 @@ app.get("/v1", (req, res) => {
 // Routes
 const authRouter = require('./src/routes/auth')
 const customerRouter = require('./src/routes/customers')
+const transactionsRouter = require('./src/routes/transactions')
 app.use('/v1/auth', authRouter)
 app.use('/v1/customers', customerRouter)
+app.use('/v1/transactions', transactionsRouter)
 
 // Server setup
 const PORT = process.env.PORT || 3000;
