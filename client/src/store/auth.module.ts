@@ -1,4 +1,4 @@
-import { LoginTypes } from "@/interface/auth/auth";
+import { LoginTypes } from "@/types/auth/auth";
 import AuthService from "@/services/api/auth/auth.service";
 import TokenService from "@/services/api/auth/token.service"
 

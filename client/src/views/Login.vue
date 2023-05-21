@@ -63,7 +63,7 @@
 import { computed, defineComponent, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from 'vuex';
-import { ApiErrors } from "@/interface/api/apiErrors";
+import { ApiErrors } from "@/types/api/apiErrors";
 
 export default defineComponent({
   name: "LoginView",

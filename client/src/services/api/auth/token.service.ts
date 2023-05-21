@@ -1,38 +1,39 @@
+import { LocalStorageUserTypes } from "@/types/auth/auth";
+
 class TokenService {
-
-    getLocalRefreshToken() {
-        const user = this.getUserFromLocalStorage();
-        return user?.refreshToken;
+    getLocalRefreshToken(): string | null {
+        const user: LocalStorageUserTypes = this.getUserFromLocalStorage();
+        return user ? user.refreshToken : null;
     }
 
-    getLocalAccessToken() {
-        const user = this.getUserFromLocalStorage();
-        return user?.accessToken;
+    getLocalAccessToken(): string | null {
+        const user: LocalStorageUserTypes = this.getUserFromLocalStorage();
+        return user ? user.accessToken : null;
     }
 
-    updateLocalAccessToken(token: string) {
-        const user = this.getUserFromLocalStorage();
+    updateLocalAccessToken(token: string): void {
+        const user: LocalStorageUserTypes = this.getUserFromLocalStorage();
         if (user) {
             user.accessToken = token;
             this.setUserToLocalStorage(user);
         }
     }
 
-    getUser() {
+    getUser(): LocalStorageUserTypes {
         return this.getUserFromLocalStorage() || null;
     }
 
-    setUser(user: any) {
+    setUser(user: LocalStorageUserTypes): void {
         this.setUserToLocalStorage(user);
     }
 
-    removeUser() {
+    removeUser(): void {
         localStorage.removeItem("user");
     }
 
-    getUserFromLocalStorage() {
+    getUserFromLocalStorage(): LocalStorageUserTypes {
         try {
-            const userString = localStorage.getItem("user");
+            const userString: string | null = localStorage.getItem("user");
             return userString ? JSON.parse(userString) : null;
         } catch (error) {
             console.log("Error retrieving user from localStorage:", error);
@@ -40,14 +41,13 @@ class TokenService {
         }
     }
 
-    setUserToLocalStorage(user: any) {
+    setUserToLocalStorage(user: LocalStorageUserTypes): void {
         try {
             localStorage.setItem("user", JSON.stringify(user));
         } catch (error) {
             console.log("Error setting user to localStorage:", error);
         }
     }
-    
 }
 
 export default new TokenService();
