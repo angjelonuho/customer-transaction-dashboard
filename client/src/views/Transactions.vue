@@ -1,13 +1,13 @@
 <template>
     <div class="my-5 max-w-2xl mx-auto">
-      <div class="flex flex-col items-start">
-        <DateRangeFilter @filters-applied="updateDateFilters" class="mb-4" />
-        <PriceRangeFilter @filters-applied="updatePriceFilters" />
-      </div>
-      <TableComponent :columns="columns" :data="filteredTransactions" />
-      <div v-if="loading">Loading...</div>
+        <div class="flex flex-col items-start">
+            <DateRangeFilter @filters-applied="updateDateFilters" class="mb-4" />
+            <PriceRangeFilter @filters-applied="updatePriceFilters" />
+        </div>
+        <TableComponent :columns="columns" :data="filteredTransactions" />
+        <div v-if="loading">Loading...</div>
     </div>
-  </template>
+</template>
   
   
 <script lang="ts">
