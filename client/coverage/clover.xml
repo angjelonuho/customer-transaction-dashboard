@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684668793248" clover="3.2.0">
-  <project timestamp="1684668793248" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1684670431401" clover="3.2.0">
+  <project timestamp="1684670431401" name="All files">
+    <metrics statements="17" coveredstatements="14" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8" elements="33" coveredelements="30" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
+    <file name="token.service.ts" path="C:\Users\angje\OneDrive\Desktop\work\customer-transaction-dashboard\client\src\services\api\auth\token.service.ts">
+      <metrics statements="17" coveredstatements="14" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="36" count="8" type="stmt"/>
+      <line num="37" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+      <line num="46" count="2" type="stmt"/>
+      <line num="48" count="0" type="stmt"/>
+      <line num="53" count="1" type="stmt"/>
+    </file>
   </project>
 </coverage>
