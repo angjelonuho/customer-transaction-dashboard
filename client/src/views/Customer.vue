@@ -15,7 +15,7 @@ export default defineComponent({
         TableComponent,
     },
     setup() {
-        const customers = reactive<CustomersTypes[]>([]);
+        const customers: CustomersTypes = reactive([]);
         const loading = ref(false);
         const columns = [
             { key: "id", label: "Customer ID" },

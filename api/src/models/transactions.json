@@ -10,21 +10,21 @@
       {
         "id": 2,
         "customerId": 1,
-        "date": "2023-05-19",
+        "date": "2022-05-19",
         "amount": 25.99,
         "description": "Payment"
       },
       {
         "id": 3,
         "customerId": 1,
-        "date": "2023-05-18",
+        "date": "2022-05-18",
         "amount": 100.00,
         "description": "Refund"
       },
       {
         "id": 4,
         "customerId": 1,
-        "date": "2023-05-17",
+        "date": "2022-05-17",
         "amount": 75.50,
         "description": "Purchase"
       },
@@ -80,14 +80,14 @@
       {
         "id": 12,
         "customerId": 2,
-        "date": "2023-05-19",
+        "date": "2020-05-19",
         "amount": 15.99,
         "description": "Payment"
       },
       {
         "id": 13,
         "customerId": 2,
-        "date": "2023-05-18",
+        "date": "2020-05-18",
         "amount": 90.00,
         "description": "Refund"
       },
